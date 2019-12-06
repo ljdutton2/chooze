@@ -21,22 +21,24 @@ class DrinkView(View):
         return render(request, 'cocktails/home.html', {
             'name':name,
             'instructions': instructions,
-            'image':strDrinkThumb
+            
 
         })
-    
-    def post(self, request):
+
+class SearchView(View):
+     def post(self, request):
         drink_name = request.POST['name']
         cocktail = requests.get(f'https://www.thecocktaildb.com/api/json/v2/{COCKTAIL_API_KEY}/filter.php?i={drink_name}')
-
+        template = loader.get_template('cocktails/search.html')
         if cocktail.status_code == 200:
             response = cocktail.json()['drinks']
         
         if response == 'None Found':
-            return render(request, 'cocktails/home.html')
+            return render(request, 'cocktails/search.html')
         
-        return render(request, 'cocktails/home.html', {
+        return render(request, 'cocktails/search.html', {
             'drinks': response,
+            
         })
 
 # def index(request):

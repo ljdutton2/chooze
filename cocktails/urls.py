@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.DrinkView.as_view(), name='drinkview'),
-    # path('search/', views.ingredient, name='ingredient')
+    path ('search/',views.SearchView.as_view(), name= 'searchview'),
+   
 ]
