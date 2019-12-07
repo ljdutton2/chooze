@@ -8,7 +8,9 @@ load_dotenv()
 
 COCKTAIL_API_KEY = os.getenv('COCKTAIL_API_KEY')
 
-
+class IndexView(View):
+    def get(self, request):
+        return render(request, 'cocktails/index.html')
 
 class DrinkView(View):
     def get(self, request):
@@ -20,7 +22,7 @@ class DrinkView(View):
         name = response['strDrink']
         instructions = response['strInstructions']
 
-        return render(request, 'cocktails/index.html', {
+        return render(request, 'cocktails/home.html', {
             'name':name,
             'instructions': instructions,
         })

@@ -8,17 +8,4 @@
   <p>{{ name }}</p></br>
   <p>{{ instructions }}</p>
 
-  <form action="/cocktails/" method="POST">
-    {% csrf_token %}
-    <input type="text" name="name">
-    <button type="submit">Search Drink</button>
-  </form>
-
-  {% if drinks %}
-    {% for drink in drinks %}
-      {{ drink.strDrink }}</br>
-    {% endfor %}
-  {% else %}
-  <p>None found </p>
-  {% endif %}
-{% endblock %}
+  {% endblock %}
