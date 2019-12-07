@@ -22,7 +22,7 @@ class DrinkView(View):
         name = response['strDrink']
         instructions = response['strInstructions']
 
-        return render(request, 'cocktails/home.html', {
+        return render(request, 'cocktails/home2.html', {
             'name':name,
             'instructions': instructions,
         })
