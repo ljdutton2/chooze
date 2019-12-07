@@ -8,6 +8,8 @@ load_dotenv()
 
 COCKTAIL_API_KEY = os.getenv('COCKTAIL_API_KEY')
 
+
+
 class DrinkView(View):
     def get(self, request):
         random_cocktail = requests.get(f'https://www.thecocktaildb.com/api/json/v2/{COCKTAIL_API_KEY}/random.php')
@@ -18,18 +20,15 @@ class DrinkView(View):
         name = response['strDrink']
         instructions = response['strInstructions']
 
-        return render(request, 'cocktails/home.html', {
+        return render(request, 'cocktails/index.html', {
             'name':name,
             'instructions': instructions,
-            
-
         })
 
 class SearchView(View):
-     def post(self, request):
+    def post(self, request):
         drink_name = request.POST['name']
         cocktail = requests.get(f'https://www.thecocktaildb.com/api/json/v2/{COCKTAIL_API_KEY}/filter.php?i={drink_name}')
-        template = loader.get_template('cocktails/search.html')
         if cocktail.status_code == 200:
             response = cocktail.json()['drinks']
         
@@ -38,8 +37,11 @@ class SearchView(View):
         
         return render(request, 'cocktails/search.html', {
             'drinks': response,
-            
         })
+
+
+    def get(self, request):
+        return render(request, 'cocktails/search.html')
 
 # def index(request):
 #     random_cocktail = requests.get(f'https://www.thecocktaildb.com/api/json/v2/{COCKTAIL_API_KEY}/random.php')

@@ -1,9 +1,24 @@
+{% extends "cocktails/base.html" %}
+
+
 
 
 {% block content %}
-  <h2>ChoozeBooze</h2>
-  <h3> a random cocktail generator </h3>
+  <h2>test cocktail API</h2>
   <p>{{ name }}</p></br>
   <p>{{ instructions }}</p>
 
-  {% endblock %}
+  <form action="/cocktails/" method="POST">
+    {% csrf_token %}
+    <input type="text" name="name">
+    <button type="submit">Search Drink</button>
+  </form>
+
+  {% if drinks %}
+    {% for drink in drinks %}
+      {{ drink.strDrink }}</br>
+    {% endfor %}
+  {% else %}
+  <p>None found </p>
+  {% endif %}
+{% endblock %}
