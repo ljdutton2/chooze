@@ -1,14 +1,19 @@
-{%  load static %} 
-<form action="/cocktails/search/" method="POST">
-  {% csrf_token %}
-  <input type="text" name="name">
-  <button type="submit">Search Drink</button>
-</form>
 
-{% if drinks %}
-  {% for drink in drinks %}
-    {{ drink.strDrink }}</br>
-  {% endfor %}
-{% else %}
-<p>None found </p>
-{% endif %}
+
+
+
+  <form action="/cocktails/search/" method="POST">
+    {% csrf_token %}
+    <input type="text" name="name" align-text="center" mt-5>
+    <button type="submit">Search Drink</button>
+  </form>
+
+
+  {% if drinks %}
+    {% for drink in drinks %}
+     <h1> {{ drink.strDrink }} </h1 > </br>
+    {% endfor %}
+  {% else %}
+  <p>None found </p>
+  {% endif %}
+ 

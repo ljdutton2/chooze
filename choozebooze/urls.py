@@ -22,6 +22,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('',include('cocktails.urls')),
+    path('', include('accounts.urls')),
     path('cocktails/', include('cocktails.urls')),
-    # path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    #path('api/', include('api.urls')),
+    path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
