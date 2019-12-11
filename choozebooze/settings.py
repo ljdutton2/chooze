@@ -25,7 +25,7 @@ SECRET_KEY = '-x&czi292ac+y2+%)8+@%ik&7c77o=r5f@l2!&*03-kq*k8c2h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['choozebooze.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['choozeboozeld.herokuapp.com', 'localhost', '127.0.0.1']
 DEFAULT_LOGOUT_URL = '/cocktails'
 
 # Application definition
