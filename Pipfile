@@ -11,6 +11,7 @@ django = "*"
 python-dotenv = "*"
 jinja2 = "*"
 djangorestframework = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
