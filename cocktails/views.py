@@ -27,8 +27,7 @@ class DrinkView(View):
             ing3= response['strIngredient3']
             ing4= response['strIngredient4']
 
-        if ing4 == "None":
-            return "no"
+        
 
         return render(request, 'cocktails/home2.html', {
             'name':name,
