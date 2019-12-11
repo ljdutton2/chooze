@@ -32,7 +32,15 @@
                     <h2 class="text-uppercase section-heading" style="color: rgb(112,12,10);font-size: 52px;font-family: Montserrat, sans-serif;">{{name}}</h2>
                     <h1 style="color: rgb(112,12,10);font-size: 33px;">Ingredients: {{ing1}}, {{ing2}}, {{ing3}}, {{ing4}}, {{ing5}}</h1>
                     <h3 class="text-muted section-subheading" style="color: rgb(1,9,17);font-size: 29px;">{{instructions}}</h3>
-                  
+                  <!--- CHANGE ACTION TO ... -->
+                  <form action="saved/" method="POST">
+                    {% csrf_token %}
+                    <button>Save Drink</button>
+                        
+                    <input type="hidden"  value= "{{name}}">
+                    
+                    </form>
+                 
   
                      
                 </div>

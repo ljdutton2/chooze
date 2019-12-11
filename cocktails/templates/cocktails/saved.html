@@ -1,4 +1,3 @@
-{% extends 'base.html'}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,10 +11,17 @@
 </head>
 <body>
 <h2>
-   dfghj
+   My Cocktails
 </h2>
-    {% block content %}
-    skfsj
-    {% endblock %}
+{% csrf_token %}
+{% block content %}
+{% if drinks %}
+{% for drink in drinks %}
+ <h1> {{ drink.strDrink }} </h1 > </br>
+{% endfor %}
+{% else %}
+<p>None found </p>
+{% endif %}
+{%endblock%}
 </body>
 </html>

@@ -1,19 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>search</title>
+  <header class="text-center d-flex align-content-center align-self-center justify-content-lg-center masthead text-white text-center" style="background: url('bg-masthead.jpg')no-repeat center center;background-size: cover;background-image: url('drink.jpeg');opacity: 1;width: 1065px;padding: 159px;">
+      <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <h1 style="padding: 26px;margin: 16px;font-size: 57px;">Search cocktails by ingredient</h1>
+      </div>
+      </header>
+<body>
+  
+    <form action="/search" method="POST">
+      {% csrf_token %}
+      {% block content %}
+      {% if drinks %}
+      {% for drink in drinks %}
+       <h1> {{ drink.strDrink }} </h1 > </br>
+      {% endfor %}
+    {% else %}
+    <p>None found </p>
+    {% endif %}
+    {%endblock%}
+   
+      <input type="text" name="name" align-text="center" mt-5>
+      <div class="col-12 col-md-3"><button class="btn btn-primary btn-block btn-lg"
+        type="submit">Search</button></div>
+     
+    </form>
+  
+  
+  
+   
+</body>
 
 
-
-
-  <form action="/cocktails/search/" method="POST">
-    {% csrf_token %}
-    <input type="text" name="name" align-text="center" mt-5>
-    <button type="submit">Search Drink</button>
-  </form>
-
-
-  {% if drinks %}
-    {% for drink in drinks %}
-     <h1> {{ drink.strDrink }} </h1 > </br>
-    {% endfor %}
-  {% else %}
-  <p>None found </p>
-  {% endif %}
- 

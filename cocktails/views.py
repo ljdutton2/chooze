@@ -19,13 +19,13 @@ class DrinkView(View):
 
         if random_cocktail.status_code == 200:
             response = random_cocktail.json()['drinks'][0]
-        name = response['strDrink']
-        instructions = response['strInstructions']
-        image = response['strDrinkThumb']
-        ing1= response['strIngredient1']
-        ing2= response['strIngredient2']
-        ing3= response['strIngredient3']
-        ing4= response['strIngredient4']
+            name = response['strDrink']
+            instructions = response['strInstructions']
+            image = response['strDrinkThumb']
+            ing1= response['strIngredient1']
+            ing2= response['strIngredient2']
+            ing3= response['strIngredient3']
+            ing4= response['strIngredient4']
 
         if ing4 == "None":
             return "no"
@@ -60,5 +60,5 @@ class SearchView(View):
         return render(request, 'cocktails/search.html')
 
 class SaveView(View):
-    def get(self,request):
-        return render('cocktails/saved.html')
+    def post(self,request):
+        return render(request,'cocktails/saved.html')
