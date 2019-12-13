@@ -29,16 +29,15 @@ class DrinkView(View):
             ing3= response['strIngredient3']
             ing4= response['strIngredient4']
 
-        return render(request, 'cocktails/home2.html', {
-            'name':name,
-            'instructions': instructions,
-            'image': image,
-            'ing1': ing1,
-            'ing2': ing2,
-            'ing3': ing3,
-            'ing4': ing4
-
-        })
+            return render(request, 'cocktails/home2.html', {
+                'name':name,
+                'instructions': instructions,
+                'image': image,
+                'ing1': ing1,
+                'ing2': ing2,
+                'ing3': ing3,
+                'ing4': ing4
+            })
 
 
 class SearchView(View):
