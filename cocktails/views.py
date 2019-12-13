@@ -18,6 +18,7 @@ class IndexView(View):
 class DrinkView(View):
     def get(self, request):
         random_cocktail = requests.get(f'https://www.thecocktaildb.com/api/json/v2/{COCKTAIL_API_KEY}/random.php')
+        print(random_cocktail.status_code)
 
         if random_cocktail.status_code == 200:
             response = random_cocktail.json()['drinks'][0]
