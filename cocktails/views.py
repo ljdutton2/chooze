@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import requests
 from cocktails.models import Cocktail
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
 import os
 from dotenv import load_dotenv
 from django.views import View
@@ -27,9 +29,7 @@ class DrinkView(View):
             ing3= response['strIngredient3']
             ing4= response['strIngredient4']
 
-        
-
-            return render(request, 'cocktails/home2.html', {
+        return render(request, 'cocktails/home2.html', {
             'name':name,
             'instructions': instructions,
             'image': image,
@@ -39,6 +39,7 @@ class DrinkView(View):
             'ing4': ing4
 
         })
+
 
 class SearchView(View):
     def post(self, request):
