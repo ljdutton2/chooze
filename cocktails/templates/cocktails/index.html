@@ -1,5 +1,4 @@
 
-{% extends 'cocktails/base.html' %}
  
 {% load static %}
 {% block content %}
@@ -21,10 +20,10 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="nav navbar-nav ml-auto">
                         {% if user.is_authenticated %}
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="/accounts/logout">Log out</a></li>
-                    {% else %}
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/signup">Sign Up</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/accounts/login">Log In</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'logout' %}">Log out</a></li>
+                        {% else %}
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="/accounts/signup">Sign Up</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'login'%}">Log In</a></li>
                     {% endif %}
                 </ul>
             </div>

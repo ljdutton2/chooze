@@ -26,8 +26,8 @@ SECRET_KEY = '-x&czi292ac+y2+%)8+@%ik&7c77o=r5f@l2!&*03-kq*k8c2h'
 DEBUG = True
 
 ALLOWED_HOSTS = ['choozeboozeld.herokuapp.com', 'localhost', '127.0.0.1']
-DEFAULT_LOGOUT_URL = '/cocktails'
-
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/accounts/login"
 # Application definition
 
 INSTALLED_APPS = [
