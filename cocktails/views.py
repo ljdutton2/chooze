@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 from django.views import View
 load_dotenv()
 
+
 COCKTAIL_API_KEY = os.getenv('COCKTAIL_API_KEY')
 
 class IndexView(View):
@@ -29,6 +30,8 @@ class DrinkView(View):
             ing2= response['strIngredient2']
             ing3= response['strIngredient3']
             ing4= response['strIngredient4']
+
+            # if db.find_one({"name": name}) == None: add to db
 
             return render(request, 'cocktails/home2.html', {
                 'name':name,
@@ -62,3 +65,10 @@ class SearchView(View):
 class SaveView(View):
     def post(self,request):
         return render(request,'cocktails/saved.html')
+    def get(self,request):
+        all_cocktails=requests.get(f'https://www.thecocktaildb.com/api/json/v2/{COCKTAIL_API_KEY}/search.php?f=a')
+        formatted = random_cocktail.json()['drinks']
+        #for drink in formatted:
+            # if drink.name not in db:
+                # save to db   
+                
