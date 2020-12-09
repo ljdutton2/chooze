@@ -80,11 +80,11 @@ WSGI_APPLICATION = 'choozebooze.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432,
+        'NAME':  os.getenv("PROJECT_DB_NAME", "postgres"),
+        'USER':  os.getenv("PROJECT_DB_USER", "postgres"),
+        'PASSWORD': os.getenv("PROJECT_DB_PASSWORD", "postgres"),
+        'HOST': os.getenv("PROJECT_DB_HOST", 'db'),
+        'PORT': os.getenv("PROJECT_DB_PORT", 5432),
     }
 }
 
