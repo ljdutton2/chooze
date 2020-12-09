@@ -25,7 +25,8 @@ SECRET_KEY = '-x&czi292ac+y2+%)8+@%ik&7c77o=r5f@l2!&*03-kq*k8c2h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['choozeboozeld.herokuapp.com', 'localhost', '127.0.0.1','0.0.0.0','captain.dev.choozebooze.me']
+ALLOWED_HOSTS = ['choozeboozeld.herokuapp.com', 'localhost', '127.0.0.1',
+                 '0.0.0.0', 'chooze-booze.dev.choozebooze.me', '134.209.66.82']
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/accounts/login"
 # Application definition
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'choozebooze.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates').replace('\\','/')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates').replace('\\', '/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,11 +79,14 @@ WSGI_APPLICATION = 'choozebooze.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -123,7 +127,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-     os.path.join(BASE_DIR, "static"),
- ]
- 
+    os.path.join(BASE_DIR, "static"),
+]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

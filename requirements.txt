@@ -1,4 +1,5 @@
 asgiref==3.2.3
+autopep8==1.5.4
 certifi==2019.11.28
 chardet==3.0.4
 Django==3.0
@@ -7,10 +8,10 @@ gunicorn==20.0.4
 idna==2.8
 Jinja2==2.10.3
 MarkupSafe==1.1.1
+pycodestyle==2.6.0
 python-dotenv==0.10.3
 pytz==2019.3
 requests==2.22.0
 sqlparse==0.3.0
+toml==0.10.2
 urllib3==1.25.7
-
-psycopg2-binary>=2.8
